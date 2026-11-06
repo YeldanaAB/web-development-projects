@@ -22,7 +22,7 @@ An informational webpage about the Columbia River built using HTML5 and inline C
 - Applied inline CSS for typography, colors, spacing, and layout.
 - Incorporated images, embedded media, and accessible image descriptions.
 
-**[Live Demo](https://cs.torontomu.ca/~ybolatzh/lab01/lab01.html)**
+[Live Demo](https://cs.torontomu.ca/~ybolatzh/lab01/lab01.html)
 
 ### 2. Personal Website
 
@@ -34,7 +34,7 @@ A personal profile website featuring structured navigation and custom styling.
 - Used CSS variables and custom fonts.
 - Organized content using HTML and CSS.
 
-**[Live Demo](https://cs.torontomu.ca/~ybolatzh/lab02/lab02.html)**
+[Live Demo](https://cs.torontomu.ca/~ybolatzh/lab02/lab02.html)
 
 ### 3. Shark Adoption Website
 
@@ -64,7 +64,7 @@ Two client-side programming exercises developed using vanilla JavaScript.
 - Implemented a palindrome checker using string sanitization and validation functions.
 - Generated dynamic results with conditional formatting.
 
-**[Live Demo](https://cs.torontomu.ca/~ybolatzh/lab04/lab04.html)**
+[Live Demo](https://cs.torontomu.ca/~ybolatzh/lab04/lab04.html)
 
 ### 5. JavaScript Framework Projects
 

@@ -1,0 +1,224 @@
+/* Variables */
+:root {
+    --primary-color: #ffeffa;
+    --second-color: #4b587b;
+    --text-color: #ffeffa;
+    --spacing: 20px;
+    --border: 2px solid var(--primary-color);
+    --shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+    --radius: 10px;
+    --body-size: 16px;
+    --heading-size: 22px;
+    --title-size: 32px;
+}
+
+/* Global reset */
+* {
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    margin: 0;
+    padding: 0;
+    color: var(--text-color);
+    background: linear-gradient(#6f81ad, #fac3ff);
+    font-family: "Roboto Mono", monospace;
+    font-size: var(--body-size);
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    padding: calc(var(--spacing) * 2);
+    text-align: center;
+    color: white;
+    border-bottom: var(--border);
+    box-shadow: var(--shadow);
+    background: linear-gradient(#2f3956, #5e709c);
+ 
+}
+
+header h1 {
+    margin: 0;
+    color: var(--primary-color);
+    font-size: var(--title-size);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+/* Navigation */
+nav {
+    width: fit-content;
+    margin: 20px auto;
+    padding: 12px 20px;
+    text-align: center;
+    background-color: var(--second-color);
+    border: var(--border);
+    border-radius: 50px;
+    box-shadow: var(--shadow);
+
+    /* Flexbox */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    margin: 0;
+    color: var(--primary-color);
+    font-size: var(--body-size);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Main content */
+main {
+    position: relative;
+    width: 90%;
+    max-width: 1000px;
+    margin: 30px auto;
+    padding-bottom: 230px;
+}
+
+/* All sections */
+section {
+    margin-bottom: 30px;
+    padding: var(--spacing);
+    border: var(--border);
+    border-radius: var(--radius);
+    background-color: rgba(239, 192, 192, 0.351);
+    box-shadow: var(--shadow);
+}
+
+/* Hobbies Flexbox */
+.hobby-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.hobby {
+    flex: 1;
+    padding: 15px;
+    border: var(--border);
+    border-radius: var(--radius);
+    background-color: rgba(75, 88, 123, 0.5);
+}
+
+.hobby h3 {
+    margin-top: 0;
+    color: var(--primary-color);
+    font-size: 18px;
+}
+
+
+/* Photo section */
+#photo {
+    min-height: 350px;
+}
+
+#photo figure {
+    margin: 0;
+}
+
+/* Section headings */
+section h2 {
+    color: var(--primary-color);
+    font-size: var(--heading-size);
+}
+
+/* Icons */
+.material-symbols-outlined {
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+/* Combinator */
+section ul li {
+    margin-bottom: 8px;
+}
+
+/* Figure */
+figure {
+    padding: var(--spacing);
+    text-align: center;
+    border: var(--border);
+    border-radius: var(--radius);
+
+    background-image: url("background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Image */
+figure img {
+    width: 200px;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Caption */
+figcaption {
+    margin-top: 10px;
+    padding: 8px;
+    border-radius: 50px;
+    box-shadow: var(--shadow);
+    background-color: var(--second-color);
+    color: var(--primary-color);
+    border: var(--border);
+    font-size: var(--body-size);
+}
+
+
+/* Contact Section */
+
+#contact {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    min-height: 180px;
+    margin: 0;
+    padding: var(--spacing);
+    border: var(--border);
+    border-radius: var(--radius);
+    background-color: var(--second-color);
+    box-shadow: var(--shadow);
+
+    font-family: "Roboto Mono", monospace;
+    font-size: var(--body-size);
+    line-height: 1.6;
+}
+
+#contact h2 {
+    margin-top: 0;
+    color: var(--primary-color);
+    font-size: var(--heading-size);
+}
+
+#contact a {
+    color: var(--primary-color);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#contact a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    padding: var(--spacing);
+    text-align: center;
+    background-color: var(--second-color);
+    border-top: var(--border);
+    font-size: var(--body-size);
+}

@@ -1,0 +1,268 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab05 - Problem 3</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Redaction+35:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <style>
+        /* Colors */
+        :root {
+            --peach: #faae88;
+            --coral: #e88e83;
+            --sky-blue: #57819e;
+            --ocean: #526d82;
+            --cream: #fff5ed;
+            --gold: #c17f45;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(
+                var(--ocean),
+                var(--sky-blue),
+                var(--coral),
+                var(--peach)
+            );
+            color: var(--ocean);
+            font-family: 'Crimson Text', serif;
+        }
+
+        #app {
+            flex: 1;
+            min-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 25px;
+        }
+
+        h1 {
+            margin: 0 0 30px;
+            color: var(--cream);
+            font-family: 'Redaction 35', serif;
+            font-size: 36px;
+            font-weight: normal;
+            text-align: center;
+            text-shadow: 1px 2px 5px rgba(42, 58, 80, 0.3);
+        }
+
+        /* Image card */
+        .image-card {
+            position: relative;
+            width: 100%;
+            max-width: 320px;
+            height: 230px;
+            overflow: hidden;
+            border: 3px double #ffd1ae;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(44, 61, 80, 0.3);
+            cursor: pointer;
+            transition: max-width 0.5s ease, height 0.5s ease;
+        }
+
+        .image-card.expanded {
+            max-width: 850px;
+            height: 500px;
+            cursor: default;
+        }
+
+        .image-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Overlay */
+        .overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 25px;
+            background: linear-gradient(
+                to top,
+                rgba(42, 58, 80, 0.65),
+                rgba(232, 142, 131, 0.15)
+            );
+        }
+
+        .overlay-text {
+            max-width: 500px;
+            padding: 25px;
+            background: rgba(255, 245, 237, 0.9);
+            border: 1px solid var(--gold);
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .overlay-text h2 {
+            margin: 0 0 10px;
+            color: var(--coral);
+            font-family: 'Redaction 35', serif;
+            font-size: 30px;
+            font-weight: normal;
+        }
+
+        .overlay-text p {
+            margin: 0;
+            color: var(--ocean);
+            font-size: 19px;
+        }
+
+        /* Overlay animation */
+        .fade-enter-active,
+        .fade-leave-active {
+            transition: opacity 0.4s ease;
+        }
+
+        .fade-enter-from,
+        .fade-leave-to {
+            opacity: 0;
+        }
+
+        /* Close button */
+        .close-button {
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 45px;
+            height: 45px;
+            background: var(--cream);
+            color: var(--ocean);
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .close-button:hover {
+            background: var(--peach);
+        }
+
+        /* Footer */
+        footer {
+            padding: 20px;
+            color: var(--cream);
+            font-family: 'Crimson Text', serif;
+            font-size: 17px;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        footer a {
+            color: var(--cream);
+        }
+
+        footer a:hover {
+            color: var(--peach);
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 28px;
+            }
+
+            .image-card.expanded {
+                height: 450px;
+            }
+
+            .overlay-text {
+                padding: 18px;
+            }
+
+            .overlay-text h2 {
+                font-size: 24px;
+            }
+
+            .overlay-text p {
+                font-size: 17px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1>Animated Image Card</h1>
+        <div
+            class="image-card"
+            :class="{ expanded: isExpanded }"
+            @click="expandImage">
+            <img
+                src="sea.jpg"
+                alt="Small boat on calm water beneath sunset clouds">
+
+            <transition name="fade">
+                <div class="overlay" v-if="isExpanded">
+                    <div class="overlay-text">
+                        <h2>Nature and Boats</h2>
+                        <p>
+                            This image represents the beauty of nature,
+                            showing a peaceful ocean, a small boat,
+                            and colorful sunset clouds.
+                            It captures the calmness of the sea.
+                        </p>
+                    </div>
+                    <button
+                        class="close-button"
+                        @click.stop="closeImage"
+                        aria-label="Close image">
+                        <span class="material-icons">close</span>
+                    </button>
+                </div>
+            </transition>
+        </div>
+    </div>
+
+    <footer>
+        <p>Made by Yeldana Bolatzhan.</p>
+        <p>Photo by ELG21 on
+            <a href="https://pixabay.com/photos/sea-boat-clouds-landscape-sunset-9455144/"
+               target="_blank"
+               rel="noopener noreferrer">Pixabay</a>
+        </p>
+    </footer>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> 
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    isExpanded: false
+                };
+            },
+            methods: {
+                expandImage() {
+                    this.isExpanded = true;
+                },
+                closeImage() {
+                    this.isExpanded = false;
+                }
+            }
+        });
+        app.mount("#app");
+    </script>
+</body>
+</html>

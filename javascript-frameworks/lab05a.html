@@ -1,0 +1,340 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab05 - Problem 1</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Redaction+35:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* Colors */
+        :root {
+            --pink: #f3dce4;
+            --rose: #b77b91;
+            --cream: #fffaf2;
+            --gold: #c6a36a;
+            --brown: #654a53;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(135deg, #fff5f7, #f3dce4, #e8d5e8);
+            color: var(--brown);
+            font-family: 'Crimson Text', serif;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            max-width: 570px;
+            width: calc(100% - 30px);
+            margin: 40px auto 0;
+            padding: 25px;
+            background: var(--cream);
+            border: 3px double var(--gold);
+            border-radius: 25px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            color: var(--rose);
+            font-family: 'Redaction 35', serif;
+            font-size: 32px;
+            font-weight: normal;
+        }
+
+        /* Main layout */
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            flex: 1;
+            gap: 25px;
+            width: 100%;
+            max-width: 1200px;
+            margin: 40px auto 50px;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 30px;
+            background: var(--cream);
+            border: 3px double var(--gold);
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(101, 74, 83, 0.15);
+        }
+
+        #formSection {
+            flex: 1;
+            min-width: 0;
+        }
+
+        #result {
+            display: block;
+            flex: 1;
+            min-width: 0;
+            min-height: 420px;
+            text-align: center;
+        }
+
+        section h2 {
+            margin: 0 0 25px;
+            color: var(--rose);
+            font-family: 'Redaction 35', serif;
+            font-size: 26px;
+            font-weight: normal;
+            text-align: center;
+        }
+
+        /* Form */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        label {
+            color: var(--brown);
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            background: #fffdf9;
+            color: #8b6b45;
+            border: 1px solid var(--gold);
+            border-radius: 10px;
+            font-family: 'Crimson Text', serif;
+            font-size: 16px;
+            caret-color: var(--rose);
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: #a58b94;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: 2px solid var(--gold);
+            border-color: var(--gold);
+            background: var(--cream);
+            color: #8b6b45;
+        }
+
+        input::selection,
+        textarea::selection {
+            background: var(--pink);
+            color: var(--brown);
+        }
+
+        input:-webkit-autofill,
+        input:-webkit-autofill:focus {
+            -webkit-text-fill-color: #8b6b45;
+            box-shadow: 0 0 0 1000px #fffdf9 inset;
+        }
+
+        textarea {
+            min-height: 90px;
+            resize: vertical;
+        }
+        
+        button {
+            margin-top: 12px;
+            padding: 12px;
+            background: #ead7a7;
+            color: #654a53;
+            border: 2px solid var(--gold);
+            border-radius: 12px;
+            font-family: 'Crimson Text', serif;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #dfc48b;
+        }
+
+        #error {
+            margin: 0;
+            color: #a04f69;
+            font-size: 15px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* Preview */
+        #curveArea {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            min-height: 300px;
+            padding: 20px;
+        }
+
+        #curve {
+            position: relative;
+            width: 100%;
+            margin: 0 auto;
+            color: #a47c45;
+            font-family: 'Redaction 35', serif;
+            font-size: 20px;
+            font-weight: normal;
+            text-align: center;
+        }
+
+        footer {
+            padding: 20px;
+            color: var(--brown);
+            font-family: 'Crimson Text', serif;
+            font-size: 17px;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+        }
+        
+        /* Mobile */
+        @media (max-width: 700px) {
+            header {
+                margin-top: 20px;
+            }
+
+            header h1 {
+                font-size: 28px;
+            }
+
+            main {
+                flex-direction: column;
+            }
+
+            #formSection,
+            #result {
+                width: 100%;
+                flex: none;
+            }
+
+            section {
+                padding: 22px;
+            }
+
+            section h2 {
+                font-size: 23px;
+            }
+
+            #curve {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>✥ Problem 1 ✥</h1>
+    </header>
+    <main>
+        <section id="formSection">
+            <h2>Contact Information</h2>
+            <form id="userForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name"
+                       placeholder="Enter your full name" required>
+
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone"
+                       placeholder="(416) 555-5555"
+                       maxlength="14" required>
+
+                <label for="address">Address:</label>
+                <textarea id="address"
+                          placeholder="Enter your address"
+                          required></textarea>
+
+                <button type="submit">Submit</button>
+                <p id="error"></p>
+            </form>
+        </section>
+
+        <section id="result">
+            <h2>Your Curved Information</h2>
+            <div id="curveArea"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Made by Yeldana Bolatzhan.</p>
+    </footer>
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.1.js"></script>
+    <script src="https://ihypress.de/programming/javascript/arctext.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#userForm").on("submit", function (event) {
+                event.preventDefault();
+
+                // Get values
+                var name = $("#name").val().trim();
+                var phone = $("#phone").val().trim();
+                var address = $("#address").val().trim();
+                $("#error").text("");
+
+                // Check name
+                if (!/^[A-Za-z ]+$/.test(name)) {
+                    $("#error").text("Name must contain only letters and spaces.");
+                    return;
+                }
+
+                // Check phone
+                if (!/^\(\d{3}\) \d{3}-\d{4}$/.test(phone)) {
+                    $("#error").text("Phone must be in format (416) 555-5555.");
+                    return;
+                }
+
+                if (address === "") {
+                    $("#error").text("Please enter your address.");
+                    return;
+                }
+
+                // Change phone format
+                function formatPhone(phone) {
+                    return phone.replace(
+                        /^\((\d{3})\) (\d{3})-(\d{4})$/,
+                        "$1-$2-$3"
+                    );
+                }
+
+                var newPhone = formatPhone(phone);
+                var fullText = name.toUpperCase() + " - " +
+                    newPhone + " - " + address.replace(/\s+/g, " ");
+
+                // Display curved text
+                $("#curveArea").html('<h2 id="curve"></h2>');
+                $("#curve").text(fullText);
+
+                $("#curve").arctext({
+                    radius: 350,
+                    dir: 1,
+                    rotate: true
+                });
+            });
+        });
+    </script>
+</body>
+</html>

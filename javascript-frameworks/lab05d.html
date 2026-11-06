@@ -1,0 +1,178 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab05 - Problem 4</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Redaction+35:wght@400;700&display=swap" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.17.4/dist/cdn.min.js"></script>
+
+    <style>
+        /* Colors */
+        :root {
+            --pink: #f3dce4;
+            --rose: #b77b91;
+            --cream: #fffaf2;
+            --gold: #c6a36a;
+            --brown: #654a53;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(135deg, #fff5f7, #f3dce4, #e8d5e8);
+            color: var(--brown);
+            font-family: 'Crimson Text', serif;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 25px;
+        }
+
+        /* Counter card */
+        .counter-card {
+            width: 100%;
+            max-width: 550px;
+            padding: 45px 30px;
+            background: var(--cream);
+            border: 3px double var(--gold);
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(101, 74, 83, 0.15);
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0 0 15px;
+            color: var(--rose);
+            font-family: 'Redaction 35', serif;
+            font-size: 36px;
+            font-weight: normal;
+        }
+
+        .description {
+            margin: 0 0 25px;
+            font-size: 19px;
+        }
+
+        .count {
+            margin: 20px auto 30px;
+            padding: 15px;
+            max-width: 220px;
+            background: #fffdf9;
+            color: var(--brown);
+            border: 2px solid var(--gold);
+            border-radius: 15px;
+            font-family: 'Redaction 35', serif;
+            font-size: 70px;
+            overflow-wrap: anywhere;
+        }
+
+        /* Buttons */
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .count-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        button {
+            padding: 12px 20px;
+            background: #ead7a7;
+            color: var(--brown);
+            border: 2px solid var(--gold);
+            border-radius: 12px;
+            font-family: 'Crimson Text', serif;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #dfc48b;
+        }
+
+        .count-buttons button {
+            min-width: 115px;
+        }
+
+        .reset-button {
+            min-width: 115px;
+            background: var(--pink);
+        }
+
+        .reset-button:hover {
+            background: #e9c5d3;
+        }
+
+        footer {
+            padding: 20px;
+            color: var(--brown);
+            font-family: 'Crimson Text', serif;
+            font-size: 17px;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+            .counter-card {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            .count {
+                font-size: 55px;
+            }
+
+            button {
+                padding: 10px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="counter-card" x-data="{ count: 0 }">
+            <h1>Interactive Counter</h1>
+            <p class="description">Click the buttons to change the number.</p>
+            <div class="count" x-text="count"></div>
+            <div class="buttons">
+                <div class="count-buttons">
+                    <button x-on:click="count--">Decrease</button>
+                    <button x-on:click="count++">Increase</button>
+                </div>
+                <button class="reset-button" x-on:click="count = 0">Reset</button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>Made by Yeldana Bolatzhan.</p>
+    </footer>
+</body>
+</html>

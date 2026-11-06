@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shark Adoption Center - Bootstrap</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Theme colors -->
+    <style>
+        :root { --heading: #f2d49b; --card: #104766; }
+        body { font-family: 'Quicksand', sans-serif; color: white; background: linear-gradient(to bottom, #77cddd, #032b4a); }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+        h2, h3 { color: var(--heading); }
+        .site-header { background: #f2d49b; }
+        .site-header h1, .site-header .nav-link { color: #07546b; }
+        .site-header .nav-link:hover, .site-header .nav-link:focus { color: #1599b3; text-decoration: underline; }
+        .section-box { background: rgba(0,35,72,.3); border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,.2); }
+        .shark-card { background: var(--card); color: white; border: 0; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,.2); }
+        .shark-card img { width: 100%; height: 220px; object-fit: cover; }
+        .ocean-btn { background: #206b8466; color: white; box-shadow: 0 4px 12px rgba(0,0,0,.2); border: 0; }
+        .ocean-btn:hover, .ocean-btn:focus { background: #25b4e379; color: white; }
+        .faq-box { background: rgba(255,255,255,.08); border-radius: 10px; }
+        .species-badge { background: #247f9e; }
+        .carousel-image { height: 300px; object-fit: cover; border-radius: 10px; }
+        .carousel-caption { background: rgba(0,35,72,.75); border-radius: 10px; }
+        footer { background: #02243e; }
+    </style>
+</head>
+<body>
+    <!-- Header and Navigation -->
+    <header class="site-header text-center py-4 shadow-sm">
+    <div class="container">
+        <h1 class="mb-3">Shark Adoption Center</h1>
+        <nav class="navbar navbar-expand-sm justify-content-center p-0" aria-label="Main navigation">
+            <div class="navbar-nav flex-row flex-wrap justify-content-center gap-2 gap-md-4">
+                <a class="nav-link fw-bold" href="#home">Home</a>
+                <a class="nav-link fw-bold" href="#about">About Us</a>
+                <a class="nav-link fw-bold" href="#info">Conservation</a>
+                <a class="nav-link fw-bold" href="#adoption">Adopt</a>
+                <a class="nav-link fw-bold" href="#contact">Contact</a>
+            </div>
+        </nav>
+    </div>
+</header>
+
+    <main class="container py-4">
+        <!-- Home -->
+        <section id="home" class="section-box text-center p-4 p-md-5 mb-4">
+            <h2>🌊 Welcome to the Shark Adoption Center!</h2>
+            <p class="mx-auto" style="max-width:700px">Discover the amazing world of sharks and help protect these incredible ocean creatures. At the Shark Adoption Center, you can adopt a shark and support awareness of marine conservation.</p>
+        </section>
+
+        <!-- About Us and Conservation -->
+        <div class="section-box p-4 p-md-5 mb-4 text-center">
+            <section id="about" class="mb-5">
+                <h2>🪸 About Us</h2>
+                <p class="mx-auto" style="max-width:750px">Founded in 2026, the Shark Adoption Center is dedicated to raising awareness about shark conservation and protecting marine life. Our mission is to inspire people to learn about sharks and support efforts to preserve their natural habitats. Through our adoption program, we hope to encourage more people to care about the future of our oceans.</p>
+            </section>
+            <section id="info">
+                <h2>🌍 Why Shark Conservation Matters</h2>
+                <p class="mx-auto" style="max-width:750px">Sharks play an important role in keeping our oceans healthy and balanced. Unfortunately, many shark species face threats such as overfishing, pollution, and habitat loss. By adopting a shark, you can help raise awareness about these amazing animals and the importance of protecting marine life.</p>
+                <details class="faq-box p-3 mx-auto my-3" style="max-width:650px">
+                    <summary class="fw-bold">What is Shark Adoption?</summary>
+                    <p class="mt-3">Shark adoption is a way to support shark conservation and learn more about these incredible animals. Sharks remain in their natural habitats.</p>
+                </details>
+                <details class="faq-box p-3 mx-auto my-3" style="max-width:650px">
+                    <summary class="fw-bold">How Does Adoption Work?</summary>
+                    <p class="mt-3">Browse our available sharks, choose your favorite, and learn how you can help protect marine life.</p>
+                </details>
+                <a class="btn ocean-btn mt-3 px-4 py-2" href="#adoption">Meet Our Sharks</a>
+            </section>
+        </div>
+
+        <!-- Adoption -->
+        <section id="adoption" class="section-box text-center p-4 p-md-5 mb-4">
+            <h2>🦈 Available for Adoption</h2>
+            <p>Meet our adorable sharks and choose your new ocean friend!</p>
+
+            <!-- Bootstrap Carousel: auto-cycling and controls -->
+            <div id="featuredSharks" class="carousel slide mx-auto my-4" data-bs-ride="carousel" data-bs-interval="3500" style="max-width:750px">
+                <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="images/whale-shark.jpg" class="d-block w-100 carousel-image" alt="Whale shark">
+                <div class="carousel-caption d-block">
+                    <h3 class="mb-1">Bubbles</h3>
+                    <p class="mb-0">Whale Shark</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="images/sandbar-shark.jpg" class="d-block w-100 carousel-image" alt="Sandbar shark">
+                <div class="carousel-caption d-block">
+                    <h3 class="mb-1">Sandy</h3>
+                    <p class="mb-0">Sandbar Shark</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="images/nurse-shark.jpg" class="d-block w-100 carousel-image" alt="Nurse shark">
+                <div class="carousel-caption d-block">
+                    <h3 class="mb-1">Sleepy</h3>
+                    <p class="mb-0">Nurse Shark</p>
+                </div>
+            </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#featuredSharks" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#featuredSharks" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+
+            <!-- Bootstrap Responsive Grid -->
+            <div class="row g-4 mt-2">
+            <!-- Bubbles -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <article class="card shark-card h-100 text-center overflow-hidden">
+                    <img src="images/whale-shark.jpg" class="card-img-top" alt="Whale shark">
+                    <div class="card-body d-flex flex-column p-4">
+                        <h3 class="card-title">Bubbles</h3>
+                        <p><span class="badge species-badge">Species: Whale Shark</span></p>
+                        <p class="card-text">Bubbles is a gentle giant who loves swimming through the ocean and eating plankton.</p>
+                        <a href="#contact" class="btn ocean-btn mt-auto align-self-center">Adopt Me</a>
+                    </div>
+                </article>
+            </div>
+            <!-- Sandy -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <article class="card shark-card h-100 text-center overflow-hidden">
+                    <img src="images/sandbar-shark.jpg" class="card-img-top" alt="Sandbar shark">
+                    <div class="card-body d-flex flex-column p-4">
+                        <h3 class="card-title">Sandy</h3>
+                        <p><span class="badge species-badge">Species: Sandbar Shark</span></p>
+                        <p class="card-text">Sandy is a curious shark who enjoys exploring sandy ocean floors.</p>
+                        <a href="#contact" class="btn ocean-btn mt-auto align-self-center">Adopt Me</a>
+                    </div>
+                </article>
+            </div>
+            <!-- Sleepy -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <article class="card shark-card h-100 text-center overflow-hidden">
+                    <img src="images/nurse-shark.jpg" class="card-img-top" alt="Nurse shark">
+                    <div class="card-body d-flex flex-column p-4">
+                        <h3 class="card-title">Sleepy</h3>
+                        <p><span class="badge species-badge">Species: Nurse Shark</span></p>
+                        <p class="card-text">Sleepy is a calm shark who loves resting on the ocean floor.</p>
+                        <a href="#contact" class="btn ocean-btn mt-auto align-self-center">Adopt Me</a>
+                    </div>
+                </article>
+            </div>
+            <!-- Sunny -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <article class="card shark-card h-100 text-center overflow-hidden">
+                    <img src="images/lemon-shark.jpg" class="card-img-top" alt="Lemon shark">
+                    <div class="card-body d-flex flex-column p-4">
+                        <h3 class="card-title">Sunny</h3>
+                        <p><span class="badge species-badge">Species: Lemon Shark</span></p>
+                        <p class="card-text">Sunny is a curious shark who loves exploring warm, shallow waters.</p>
+                        <a href="#contact" class="btn ocean-btn mt-auto align-self-center">Adopt Me</a>
+                    </div>
+                </article>
+            </div>
+            <!-- Hammer -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <article class="card shark-card h-100 text-center overflow-hidden">
+                    <img src="images/hammerhead-shark.jpg" class="card-img-top" alt="Hammerhead shark">
+                    <div class="card-body d-flex flex-column p-4">
+                        <h3 class="card-title">Hammer</h3>
+                        <p><span class="badge species-badge">Species: Hammerhead Shark</span></p>
+                        <p class="card-text">Hammer is an adventurous shark with a unique head shape and amazing senses.</p>
+                        <a href="#contact" class="btn ocean-btn mt-auto align-self-center">Adopt Me</a>
+                    </div>
+                </article>
+            </div>
+            <!-- Coral -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <article class="card shark-card h-100 text-center overflow-hidden">
+                    <img src="images/caribbean-reef-shark.jpg" class="card-img-top" alt="Caribbean reef shark">
+                    <div class="card-body d-flex flex-column p-4">
+                        <h3 class="card-title">Coral</h3>
+                        <p><span class="badge species-badge">Species: Caribbean Reef Shark</span></p>
+                        <p class="card-text">Coral loves exploring beautiful coral reefs and swimming through tropical waters.</p>
+                        <a href="#contact" class="btn ocean-btn mt-auto align-self-center">Adopt Me</a>
+                    </div>
+                </article>
+            </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="section-box text-center p-4 p-md-5">
+            <h2>🐚 Contact Us</h2>
+            <p>Interested in adopting a shark or have any questions? We'd love to hear from you!</p>
+            <p>Email: sharks@example.com</p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center p-4"><p class="mb-0">Made by Yeldana Bolatzhan.</p></footer>
+
+</body>
+</html>
